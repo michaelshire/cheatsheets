@@ -62,3 +62,8 @@ oc get pods -n <namespace> -o custom-columns=NAME:metadata.name,NODE:spec.nodeNa
 ```
 oc get namespace --all-namespaces --no-headers -o custom-columns=NAME:metadata.name,REQUESTER:metadata.annotations.openshift\.io/requester
 ```
+
+## Quickly run a pod in the current namespace and perform ping using that pod (you can substitute ping with most centos commands, or even /bin/bash)
+```
+oc run -i --tty ping --image=centos --restart=Never --rm -- ping <IPaddress>
+```
