@@ -11,7 +11,7 @@ az aro show --name <resourcename> --resource-group <resourceGroup> --query '[].{
 ```
 
 ## Apply `tags` to all resources in a `resourceGroup` in the `subscription`
-## Where <tags> is in the format [tag1=value1 tag2=value2 tag3=value3 ...]
+## Where `tags` is in the format [tag1=value1 tag2=value2 tag3=value3 ...]
 ```
 az login
 az account set -s <subscription>
