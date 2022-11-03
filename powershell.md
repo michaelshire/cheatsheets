@@ -18,3 +18,7 @@ $DecodedText
 ```
 foreach($email in Get-Content .\file.csv) {Get-ADUser -Filter {emailaddress -eq $email} -Property EmailAddress, Division | Select EmailAddress, Enabled, Division | Export-CSV .\outfile.csv -Append}
 ```
+
+## Get the OS of the computer from AD Computer properties
+```
+get-adcomputer -filter {Name -eq "<computername>"} -Properties * | Select Name, OperatingSystem
