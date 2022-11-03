@@ -29,7 +29,7 @@ get-adcomputer -filter {Name -eq "<computername>"} -Properties * | Select Name, 
 get-adcomputer -filter {OperatingSystem -like '*Windows Server*'} -properties Name,OperatingSystem,LastLogonDate | Select Name,LastLogonDate,OperatingSystem | Export-CSV .\WinServer.csv
 ```
 
-## Get the computers with OS like "Windows Server" that have not logged on for 30 days
+## Get the computers with OS like "Windows Server" that have not logged on for 90 days
 ```
-get-adcomputer -filter {OperatingSystem -like '*Windows Server*'} -properties Name,OperatingSystem,LastLogonDate | Where {($_.LastLogonDate -lt (Get-Date).AddDays(-30)) -and ($_.LastLogonDate -ne $NULL)} | Select Name,LastLogonDate,OperatingSystem | Export-CSV .\WinServerIdle30days.csv
+get-adcomputer -filter {OperatingSystem -like '*Windows Server*'} -properties Name,OperatingSystem,LastLogonDate | Where {($_.LastLogonDate -lt (Get-Date).AddDays(-90)) -and ($_.LastLogonDate -ne $NULL)} | Select Name,LastLogonDate,OperatingSystem | Export-CSV .\WinServerIdle90days.csv
 ```
