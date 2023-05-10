@@ -23,6 +23,10 @@ foreach($email in Get-Content .\file.csv) {Get-ADUser -Filter {emailaddress -eq 
 ```
 Get-AzureaDUser -Filter "mail eq '<email>'" | Select mail, userprincipalname, enabled, accountenabled, department
 ```
+## Same as above, but with a loop to input from file.csv and output to a outfile.csv
+```
+foreach($email in Get-Content .\file.csv) {Get-AzureaDUser -Filter "mail eq '$email'" |Select mail, userprincipalname, accountenabled, department| Export-CSV .\outfile.csv -Append}
+```
 
 ## Get the OS of the computer from AD Computer properties
 ```
