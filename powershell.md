@@ -42,3 +42,8 @@ get-adcomputer -filter {OperatingSystem -like '*Windows Server*'} -properties Na
 ```
 get-adcomputer -filter {OperatingSystem -like '*Windows Server*'} -properties Name,OperatingSystem,LastLogonDate | Where {($_.LastLogonDate -lt (Get-Date).AddDays(-90)) -and ($_.LastLogonDate -ne $NULL)} | Select Name,LastLogonDate,OperatingSystem | Export-CSV .\WinServerIdle90days.csv
 ```
+
+## Get the full DN for a user in AD
+```
+Get-ADUser -Filter 'Name -eq "<Firstname> <Lastname>"' -Properties * | Select-Object "Name", "EmailAddress", "distinguishedName"
+```
