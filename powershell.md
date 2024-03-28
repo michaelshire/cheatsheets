@@ -48,7 +48,8 @@ get-adcomputer -filter {OperatingSystem -like '*Windows Server*'} -properties Na
 Get-ADUser -Filter 'Name -eq "<Firstname> <Lastname>"' -Properties * | Select-Object "Name", "EmailAddress", "distinguishedName"
 ```
 
-# Create a spreadsheet that shows all Azure AD Groups and their Owners
+## Create a spreadsheet that shows all Azure AD Groups and their Owners
+Source: https://stackoverflow.com/questions/58870231/export-all-azure-ad-groups-and-their-owner-to-a-csv-file
 ```
 $array = @()
 $Properties=@{}
@@ -93,4 +94,3 @@ Foreach($group in $groups){
 }
 $array | export-csv -Path .\test123.csv -NoTypeInformation -Encoding UTF8
 ```
-Source: https://stackoverflow.com/questions/58870231/export-all-azure-ad-groups-and-their-owner-to-a-csv-file
