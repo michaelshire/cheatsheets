@@ -27,3 +27,8 @@ az keyvault secret set --name <secret name> --vault-name <vault-name> --subscrip
 ```
 az keyvault secret show -o tsv --name <secretname> --vault-name <vaultname> --subscription <subscription> --query value >> <filename>
 ```
+
+## View the details of an Enterprise Application
+```
+az ad app list --app-id <AppID>
+```
